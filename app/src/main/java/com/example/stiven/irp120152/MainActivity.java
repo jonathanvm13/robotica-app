@@ -20,6 +20,12 @@ public class MainActivity extends Activity {
     private ToggleButton toggleButton;
     private EditText editText;
     private TextView textView;
+    private int vlrSeekBar1 = 0;
+    private int vlrSeekBar2 = 0;
+    private int vlrSeekBar3 = 0;
+    private int vlrSeekBar4 = 0;
+    private int vlrSeekBar5 = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,15 +41,120 @@ public class MainActivity extends Activity {
         editText = (EditText) findViewById(R.id.editText);
         textView = (TextView) findViewById(R.id.textView);
 
+        seekBar1.setMax(180);
+        seekBar2.setMax(180);
+        seekBar3.setMax(180);
+        seekBar4.setMax(180);
+        seekBar5.setMax(180);
+
+
         toggleButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-             if(toggleButton.isChecked()){
-                 textView.setText("Conectado a "+ editText.getText());
-             } else {
-                 textView.setText("Negro hijo de puta");
-             }
+                if (toggleButton.isChecked()) {
+                    String s = editText.getText();
+                    if (s.equals("")) {
+                        textView.setText("No hay nada en la barra de dirección");
+                    } else {
+                        textView.setText("Conectado a " + s);
+                    }
+                } else {
+                    textView.setText("En espera");
+                }
+            }
+        });
+
+        //Listener SeekBar 1
+        seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                vlrSeekBar1 = progress;
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                vlrSeekBar1 = progress;
+            }
+        });
+
+
+        //Listener SeekBar 2
+        seekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                vlrSeekBar2 = progress;
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
+        //Listener SeekBar 3
+        seekBar3.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                vlrSeekBar3 = progress;
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
+        //Listener SeekBar 4
+        seekBar4.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                vlrSeekBar4 = progress;
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
+        //Listener SeekBar 5
+        seekBar5.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                vlrSeekBar5 = progress;
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
             }
         });
 
@@ -69,5 +180,15 @@ public class MainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void actualizarMensaje(){
+        String mensaje = "SeekBar1 esta en " + vlrSeekBar1 + "\n" +
+                "SeekBar2 esta en " + vlrSeekBar2 + "\n"
+                "SeekBar3 esta en " + vlrSeekBar3 + "\n"
+                "SeekBar4 esta en " + vlrSeekBar4 + "\n"
+                "SeekBar5 esta en " + vlrSeekBar5 + "\n";
+
+
     }
 }

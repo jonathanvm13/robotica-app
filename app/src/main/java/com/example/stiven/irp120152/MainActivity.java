@@ -70,6 +70,7 @@ public class MainActivity extends Activity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 vlrSeekBar1 = progress;
+                actualizarMensaje();
             }
 
             @Override
@@ -78,7 +79,6 @@ public class MainActivity extends Activity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                vlrSeekBar1 = progress;
             }
         });
 
@@ -88,6 +88,7 @@ public class MainActivity extends Activity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 vlrSeekBar2 = progress;
+                actualizarMensaje();
             }
 
             @Override
@@ -107,6 +108,7 @@ public class MainActivity extends Activity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 vlrSeekBar3 = progress;
+                actualizarMensaje();
             }
 
             @Override
@@ -126,6 +128,7 @@ public class MainActivity extends Activity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 vlrSeekBar4 = progress;
+                actualizarMensaje();
             }
 
             @Override
@@ -145,6 +148,7 @@ public class MainActivity extends Activity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 vlrSeekBar5 = progress;
+                actualizarMensaje();
             }
 
             @Override

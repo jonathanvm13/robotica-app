@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.stiven.irp120152"
-        minSdkVersion 21
+        minSdkVersion 9
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"

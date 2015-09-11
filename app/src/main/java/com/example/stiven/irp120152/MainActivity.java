@@ -1,10 +1,13 @@
 package com.example.stiven.irp120152;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -20,6 +23,11 @@ public class MainActivity extends Activity {
     private ToggleButton toggleButton;
     private EditText editText;
     private TextView textView;
+    private TextView textView2;
+    private TextView textView3;
+    private TextView textView4;
+    private TextView textView5;
+    private TextView textView6;
     private int vlrSeekBar1 = 0;
     private int vlrSeekBar2 = 0;
     private int vlrSeekBar3 = 0;
@@ -40,6 +48,11 @@ public class MainActivity extends Activity {
         toggleButton = (ToggleButton) findViewById(R.id.toggleButton);
         editText = (EditText) findViewById(R.id.editText);
         textView = (TextView) findViewById(R.id.textView);
+        textView2 = (TextView) findViewById(R.id.textView2);
+        textView3 = (TextView) findViewById(R.id.textView3);
+        textView4 = (TextView) findViewById(R.id.textView4);
+        textView5 = (TextView) findViewById(R.id.textView5);
+        textView6 = (TextView) findViewById(R.id.textView6);
 
         seekBar1.setMax(180);
         seekBar2.setMax(180);
@@ -53,14 +66,28 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (toggleButton.isChecked()) {
-                    String s = editText.getText();
+                    Editable s = editText.getText();
                     if (s.equals("")) {
                         textView.setText("No hay nada en la barra de dirección");
                     } else {
-                        textView.setText("Conectado a " + s);
+                        textView.setText("Conectado a: \n" + s);
                     }
                 } else {
                     textView.setText("En espera");
+                }
+            }
+        });
+
+        toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // The toggle is enabled
+                    toggleButton.setBackgroundColor(Color.GREEN);
+                    toggleButton.setText("desconectar");
+                } else {
+                    // The toggle is disabled
+                    toggleButton.setBackgroundColor(Color.RED);
+                    toggleButton.setText("conectar");
                 }
             }
         });
@@ -69,8 +96,8 @@ public class MainActivity extends Activity {
         seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                vlrSeekBar1 = progress;
-                actualizarMensaje();
+
+                textView4.setText(String.valueOf(progress));
             }
 
             @Override
@@ -87,8 +114,7 @@ public class MainActivity extends Activity {
         seekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                vlrSeekBar2 = progress;
-                actualizarMensaje();
+                textView2.setText(String.valueOf(progress));
             }
 
             @Override
@@ -107,8 +133,7 @@ public class MainActivity extends Activity {
         seekBar3.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                vlrSeekBar3 = progress;
-                actualizarMensaje();
+                textView3.setText(String.valueOf(progress));
             }
 
             @Override
@@ -127,8 +152,7 @@ public class MainActivity extends Activity {
         seekBar4.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                vlrSeekBar4 = progress;
-                actualizarMensaje();
+                textView5.setText(String.valueOf(progress));
             }
 
             @Override
@@ -147,8 +171,8 @@ public class MainActivity extends Activity {
         seekBar5.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                vlrSeekBar5 = progress;
-                actualizarMensaje();
+
+                textView6.setText(String.valueOf(progress));
             }
 
             @Override
@@ -186,12 +210,8 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void actualizarMensaje(){
-        String mensaje = "SeekBar1 esta en " + vlrSeekBar1 + "\n" +
-                "SeekBar2 esta en " + vlrSeekBar2 + "\n"
-                "SeekBar3 esta en " + vlrSeekBar3 + "\n"
-                "SeekBar4 esta en " + vlrSeekBar4 + "\n"
-                "SeekBar5 esta en " + vlrSeekBar5 + "\n";
+   public void actualizarMensaje(){
+
 
 
     }

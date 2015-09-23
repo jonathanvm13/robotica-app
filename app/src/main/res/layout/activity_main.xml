@@ -178,5 +178,27 @@
         android:layout_alignTop="@+id/textView6"
         android:layout_toEndOf="@+id/seekBar4" />
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3"
+        android:layout_marginLeft="211dp"
+        android:layout_marginStart="211dp"
+        android:layout_marginBottom="123dp"
+        android:id="@+id/linearLayout"></LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/grados"
+        android:text=" "
+        android:layout_alignBottom="@+id/linearLayout"
+        android:layout_alignLeft="@+id/seekBar5"
+        android:layout_alignStart="@+id/seekBar5" />
+
 
 </RelativeLayout>
